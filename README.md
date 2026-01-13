@@ -2,6 +2,9 @@
 
 <img src="https://img.shields.io/badge/Spark-3.5.0-orange" alt="Spark"/> <img src="https://img.shields.io/badge/Airflow-2.7.0-blue" alt="Airflow"/> <img src="https://img.shields.io/badge/dbt-1.7.0-orange" alt="dbt"/> <img src="https://img.shields.io/badge/PostgreSQL-15-blue" alt="PostgreSQL"/>
 
+> [!WARNING]
+> **Security Notice**: This project uses default credentials for local development. **Always generate your own Fernet key** and change default passwords before deploying. See [SECURITY.md](SECURITY.md) for details.
+
 A production-grade batch processing pipeline that calculates **Developer Growth Accounting metrics** (DAD, MAD, New, Churned, Resurrected) using the **GitHub Archive dataset**. This project demonstrates mastery of the modern data stack following the **Lakehouse architecture** pattern.
 
 ## 🎯 Project Overview
