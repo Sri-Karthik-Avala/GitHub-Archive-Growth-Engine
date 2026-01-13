@@ -1,0 +1,46 @@
+version: 2
+
+sources:
+  - name: staging
+    description: Staging schema containing data loaded from Silver Parquet files
+    database: analytics
+    schema: staging
+    tables:
+      - name: github_events_raw
+        description: Raw GitHub events from Silver layer
+        columns:
+          - name: event_id
+            description: Unique event identifier
+            tests:
+              - unique
+              - not_null
+          
+          - name: actor_id
+            description: GitHub user ID who performed the action
+            tests:
+              - not_null
+          
+          - name: event_type
+            description: Type of GitHub event (e.g., PushEvent, PullRequestEvent)
+          
+          - name: created_at
+            description: Timestamp when the event occurred
+            tests:
+              - not_null
+
+models:
+  - name: stg_github_events
+    description: Staging view of GitHub events with standardized column names
+    columns:
+      - name: event_id
+        description: Unique event identifier
+        tests:
+          - unique
+          - not_null
+      
+      - name: actor_id
+        tests:
+          - not_null
+      
+      - name: is_bot
+        description: Boolean flag indicating if the actor is a bot account

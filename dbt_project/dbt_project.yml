@@ -1,0 +1,67 @@
+name: 'github_growth_analytics'
+version: '1.0.0'
+config-version: 2
+
+# Profile configuration
+profile: 'github_analytics'
+
+# Directory paths
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+# Model configurations
+models:
+  github_growth_analytics:
+    # Staging models - views for quick iteration
+    staging:
+      +materialized: view
+      +schema: staging
+    
+    # Intermediate models - views
+    intermediate:
+      +materialized: view
+      +schema: intermediate
+    
+    # Mart models - tables for production
+    marts:
+      +materialized: table
+      +schema: marts
+      
+      # Large incremental tables
+      dim_user_lifecycle:
+        +materialized: incremental
+        +unique_key: actor_id
+        +on_schema_change: 'append_new_columns'
+      
+      fct_daily_growth_accounting:
+        +materialized: table
+        +post-hook: |
+          create index if not exists idx_daily_growth_date 
+          on {{ this }} (activity_date)
+      
+      fct_monthly_growth_accounting:
+        +materialized: table
+        +post-hook: |
+          create index if not exists idx_monthly_growth_month 
+          on {{ this }} (activity_month)
+
+# Test configurations
+tests:
+  +store_failures: true
+  +schema: test_results
+
+# Documentation
+docs-paths: ["docs"]
+
+# Seeds configuration
+seeds:
+  +schema: seeds
