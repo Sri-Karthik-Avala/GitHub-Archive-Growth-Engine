@@ -273,12 +273,12 @@ df_output.repartition(4, "event_date") \
 
 **`dbt_project/models/staging/stg_github_events.sql`** (43 lines)
 
-**What it does**: Loads Silver Parquet data into PostgreSQL for analytics
+**What it does**: Loads Silver Parquet data into PostgreSQL for## 📧 Contact & Code
 
-**Purpose**: Bridge between data lake (Parquet) and data warehouse (PostgreSQL)
+- **GitHub Repository**: [GitHub Archive Growth Engine](https://github.com/Sri-Karthik-Avala/GitHub-Archive-Growth-Engine)
+- **LinkedIn**: [Sri Karthik Avala](https://www.linkedin.com/in/sri-karthik-avala-8398381ba/)
 
-**Interview talking point**: 
-> "In production, this would use a bulk loader like `COPY` or Spark's JDBC writer. For cloud warehouses like Snowflake or BigQuery, you'd use their native Parquet readers."
+**Note**: This is a local prototype. In production, I would use: a bulk loader like `COPY` or Spark's JDBC writer. For cloud warehouses like Snowflake or BigQuery, you'd use their native Parquet readers."
 
 ---
 
@@ -495,12 +495,12 @@ graph TB
 graph LR
     subgraph "Bronze - Immutable Raw"
         B1[JSON Event 1<br/>actor: string<br/>2014 format]
-        B2[JSON Event 2<br/>actor: \{id, login\}<br/>2024 format]
+        B2[JSON Event 2<br/>actor: object with id and login<br/>2024 format]
     end
     
     subgraph "Silver - Standardized"
         S1[Parquet Row 1<br/>actor_id: 123<br/>actor_login: octocat<br/>is_bot: false<br/>event_date: 2024-01-01]
-        S2[Parquet Row 2<br/>actor_id: 456<br/>actor_login: renovate\[bot\]<br/>is_bot: true<br/>event_date: 2024-01-01]
+        S2[Parquet Row 2<br/>actor_id: 456<br/>actor_login: renovate-bot<br/>is_bot: true<br/>event_date: 2024-01-01]
     end
     
     subgraph "Gold - Business Metrics"

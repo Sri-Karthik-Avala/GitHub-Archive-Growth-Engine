@@ -252,6 +252,13 @@ Built as a portfolio project demonstrating production-grade data engineering for
 
 ---
 
+## 👨‍💻 Authors
+
+- **Sri Karthik Avala** - [GitHub](https://github.com/Sri-Karthik-Avala) | [LinkedIn](https://www.linkedin.com/in/sri-karthik-avala-8398381ba/)
+- **Surya Alladi**
+
+---
+
 **Note**: This is a local prototype optimized for resume demonstration. In production, you would use:
 - Cloud data warehouse (Snowflake, BigQuery, Databricks)
 - Managed Spark (EMR, Dataproc, Databricks)

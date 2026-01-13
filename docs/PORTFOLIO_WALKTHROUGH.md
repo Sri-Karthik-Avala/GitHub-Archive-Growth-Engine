@@ -377,9 +377,8 @@ df = df.withColumn(
 
 ## 📧 Contact & Code
 
-- **GitHub Repository**: [Link to repo]
-- **LinkedIn**: [Your LinkedIn]
-- **Portfolio**: [Your website]
+- **GitHub Repository**: [GitHub Archive Growth Engine](https://github.com/Sri-Karthik-Avala/GitHub-Archive-Growth-Engine)
+- **LinkedIn**: [Sri Karthik Avala](https://www.linkedin.com/in/sri-karthik-avala-8398381ba/)
 
 **Note**: This is a local prototype. In production, I would use:
 - Cloud data warehouse (Snowflake/BigQuery/Databricks)
